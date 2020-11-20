@@ -3,9 +3,11 @@
 	<head>
         <meta charset="utf-8">
 		<title>World Database Lookup</title>
-
+        <link rel="stylesheet" href="world.css">
 		<!-- you can modify this as needed or to your preference -->
-		<link href="world.css" type="text/css" rel="stylesheet" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+		 
 
 		<!-- you write this -->
 		<script src="world.js" type="text/javascript"></script>
@@ -15,21 +17,21 @@
 		<header>
 			<h1>World Database Lookup</h1>
 		</header>
-
+ 
+    <section>
 		<main>
 			<div id="controls">
-				<label for="country">Country:</label>
-				<input id="country" type="search" name="country" value="Jamaica"  />
-				<button onclick="Search()" id="lookup">Lookup</button>
-
-				<label for="checkPoint" >All: </label>
-				<input id = "checkPoint" type="checkbox" name ="All countries" unchecked/>
+				<label for="country">Enter Country Here:</label>
+				<input id="country" type="text" name="country" value="Jamaica">
+				<button onclick="Search()" id="lookup">Lookup Country</button>
+				<button onclick="City()" id="lookup2">Lookup Cites</button>
 			</div>
 			
 			<div id="result">
 				<!-- countries will appear here -->
 			</div>
 		</main>
+	</section>
 
 	</body>
 </html>

@@ -1,33 +1,46 @@
-function  Search(){
-	
-	var query=document.getElementById("country").value;
-	var newrequest = new XMLRequest();
-
-	newrequest.onreadystatechange= function (){
+function Search(){
 
 
-		if(this.readyState == 4 && this.status == 200){
+	document.getElementById("lookup").addEventListener("click", function(){      
+  var index = document.getElementById("country").value;
+  var  new_request= new XMLHttpRequest();
 
-			document.getElementById("result").innerHTML = this.responseText;
-			alert(this.responseText.replace(/<\/?[^>]+(>|$)/g,""));
+ new_request.onreadystatechange = function(){
+      if (this.readyState == 4 && this.status == 200){
+        
+        document.getElementById("result").innerHTML = new_request.responseText;
 
-		}
-	};
+      }
+    }
 
-	(document.getElementById('checkPoint').checked)
-	{
-		var url="world.php?all=true";
-
-	}
-
-	else {
-
-		var url = "world.php?country="+query;
-
-	}
-	newrequest.open("Get",url,true);
-	newrequest.send("");
+    new_request.open("GET", "world.php?country="+index);
+        new_request.send();
+  });
 
 
 
+
+
+}
+
+
+
+function City (){
+
+
+	document.getElementById("lookup2").addEventListener("click", function(){      
+  var index = document.getElementById("country").value;
+  var new_request = new XMLHttpRequest();
+
+
+new_request.onreadystatechange = function(){
+      if (this.readyState == 4 && this.status == 200){
+        
+        document.getElementById("result").innerHTML = new_request.responseText;
+
+      }
+    }
+ new_request.open("GET", "world.php?country=" +index + "&context=cities");
+  new_request.send();
+  });
 }
